@@ -25,8 +25,12 @@ const posts = [
 ];
 
 function getPostsByTags(tags) {
-  if (!tags) return [];
-  
+  if (!tags || tags.length === 0) {
+    return []; // Return an empty array if no tags are provided
+  }
+
+  console.log("Filtering posts with tags:", tags);
+
   return posts.filter(post =>
     post.tags.some(tag => tags.includes(tag))
   );
